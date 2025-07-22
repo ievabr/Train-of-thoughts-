@@ -94,6 +94,22 @@
     <script src="js/functions/setDifficulty.js"></script>
     <script src="js/functions/chooseCharacter.js"></script>
     <script src="Js/menu.js"></script>
+<script>
+document.getElementById("logInButton").onclick = function() {
+    const name = document.getElementById("PlayerName").value.trim();
+    if (!name) return alert("Enter a name");
 
+    document.getElementById("user").innerText = name;
+    document.getElementById("logIn").style.display = "none";
+    document.querySelector(".game_screen").style.display = "block";
+
+    // Start game logic if defined
+    if (typeof initializeGame === "function") {
+        initializeGame(name);
+    } else {
+        alert("Game logic not implemented or failed to load.");
+    }
+};
+</script>
 </body>
 </html>
