@@ -102,10 +102,11 @@ document.getElementById("logInButton").onclick = function() {
     document.getElementById("user").innerText = name;
     document.getElementById("logIn").style.display = "none";
     document.querySelector(".game_screen").style.display = "block";
-
+    
+    
     // Start game logic if defined
-    if (typeof initializeGame === "function") {
-        initializeGame(name);
+    if (typeof GameInitializer === "function") {
+    GameInitializer();
     } else {
         alert("Game logic not implemented or failed to load.");
     }
